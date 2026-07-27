@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap');
+
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #f0ebe1;
+  --bg-secondary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --border-color: #000000;
+  --shadow-color: #000000;
+  
+  /* Neo-Brutalist Accents */
+  --accent-yellow: #ffde4d;
+  --accent-pink: #ff6b8b;
+  --accent-green: #38e54d;
+  --accent-cyan: #219ebc;
+  --accent-purple: #b5179e;
+  
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --transition-speed: 0.15s;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Colors */
+  --bg-primary: #121214;
+  --bg-secondary: #1a1a1e;
+  --text-primary: #ffffff;
+  --text-secondary: #c9c9c9;
+  --border-color: #ffffff;
+  --shadow-color: #ffffff;
+  
+  /* Neo-Brutalist Accents - Dark Mode */
+  --accent-yellow: #ffd000;
+  --accent-pink: #ff477e;
+  --accent-green: #26c43c;
+  --accent-cyan: #00b4d8;
+  --accent-purple: #d00000;
+  
+  --card-bg: #1e1e24;
+  --input-bg: #2a2a32;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* Neo-Brutalist Utilities */
+.nb-border {
+  border: 4px solid var(--border-color);
+}
+
+.nb-shadow-yellow {
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  background-color: var(--accent-yellow);
+}
+
+.nb-shadow-pink {
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  background-color: var(--accent-pink);
+}
+
+.nb-shadow-green {
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  background-color: var(--accent-green);
+}
+
+.nb-card {
+  background-color: var(--card-bg);
+  border: 4px solid var(--border-color);
+  box-shadow: 8px 8px 0px 0px var(--shadow-color);
+  border-radius: 0px;
+  padding: 24px;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.nb-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px var(--shadow-color);
+}
+
+.nb-button {
+  cursor: pointer;
+  font-weight: 800;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border: 3px solid var(--border-color);
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  outline: none;
+  transition: all var(--transition-speed) ease;
+}
+
+.nb-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--shadow-color);
+}
+
+.nb-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+}
+
+.nb-button.yellow { background-color: var(--accent-yellow); }
+.nb-button.pink { background-color: var(--accent-pink); }
+.nb-button.green { background-color: var(--accent-green); }
+.nb-button.cyan { background-color: var(--accent-cyan); }
+
+.nb-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 3px solid var(--border-color);
+  box-shadow: 3px 3px 0px 0px var(--shadow-color);
+  outline: none;
+  transition: all var(--transition-speed) ease;
+}
+
+.nb-input:focus {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  border-color: var(--border-color);
+}
+
+/* Custom categories styling */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  border: 2px solid var(--border-color);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 3px solid var(--border-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border: 2px solid var(--bg-primary);
+}
+
+/* Skeleton Loading helper */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.skeleton-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+  background-color: var(--border-color);
+  opacity: 0.2;
+}
+
