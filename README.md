@@ -50,4 +50,4 @@ npm run dev
 
 ## Live Demo
 
-https://expensetracker.vercel.app
+https://spendtime-expensetracker.vercel.app
