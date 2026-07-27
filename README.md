@@ -1,32 +1,53 @@
-# React + TypeScript + Vite
+# Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple expense tracker built with React and Supabase.
+## A Small Note
 
-Currently, two official plugins are available:
+Building this project helped me understand how a real application comes together. Before this, I had mostly worked on UI, but this project made me connect the frontend with a backend using Supabase. I learned about authentication, protected routes, CRUD operations, form validation, and managing application state.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+One thing I enjoyed the most was solving small problems along the way. Every bug taught me something new, and by the end, I felt much more comfortable building a complete web application instead of just individual pages.
 
-## React Compiler
+There's still a lot to improve, but this project gave me confidence to build larger and more practical applications.
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Sign up / Login
+- Add, edit and delete expenses
+- View all expenses
+- Search expenses
+- Filter by category
+- Monthly spending summary
+- Protected routes
+- Responsive design
 
-## Expanding the Oxlint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- React
+- Vite
+- Supabase
+- React Router
+- Tailwind CSS
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Run Locally
+
+```bash
+git clone https://github.com/your-username/spendtime.git
+cd spendtime
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Create a `.env` file:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Live Demo
+
+https://expensetracker.vercel.app
