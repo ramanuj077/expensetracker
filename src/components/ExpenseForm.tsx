@@ -7,6 +7,7 @@ export interface Expense {
   amount: number;
   category: string;
   date: string;
+  created_at?: string;
 }
 
 interface ExpenseFormProps {
@@ -25,6 +26,17 @@ export const ExpenseForm: React.FC<ExpenseFormProps> = ({ initialExpense, onSave
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Close form on Esc press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onCancel();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onCancel]);
+
   useEffect(() => {
     if (initialExpense) {
       setTitle(initialExpense.title);
@@ -38,8 +50,15 @@ export const ExpenseForm: React.FC<ExpenseFormProps> = ({ initialExpense, onSave
     e.preventDefault();
     setError(null);
 
-    if (!title.trim()) {
+    const trimmedTitle = title.trim();
+    if (!trimmedTitle) {
       setError('Title is required.');
+      return;
+    }
+
+    // Title validation: Prevent only digits/symbols
+    if (!/[a-zA-Z]/.test(trimmedTitle)) {
+      setError('Title must contain at least one alphabetical letter (no pure numbers/symbols).');
       return;
     }
 
@@ -58,7 +77,7 @@ export const ExpenseForm: React.FC<ExpenseFormProps> = ({ initialExpense, onSave
     try {
       await onSave({
         id: initialExpense?.id,
-        title: title.trim(),
+        title: trimmedTitle,
         amount: parsedAmount,
         category,
         date,
